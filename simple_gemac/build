@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+import os
+
+
+filelist = [
+
+    'miim/eth_miim.v',
+    'miim/eth_clockgen.v',
+    'miim/eth_outputcontrol.v',
+    'miim/eth_shiftreg.v',
+
+    # myhdl fifo replacements
+    '../alt_fifo/m_fifo_2clock_cascade.v',
+    '../alt_fifo/m_fifo_short_w36.v',
+    '../alt_fifo/m_fifo_short_w11.v',
+    '../alt_fifo/m_delay_line_w10.v',
+
+    'll8_shortfifo.v',
+    'll8_to_fifo36.v',
+    'fifo36_to_ll8.v',
+    'll8_to_txmac.v',
+    'rxmac_to_ll8.v',
+
+    'oneshot_2clk.v',
+    'reset_sync.v',
+    
+    'crc.v',
+    'address_filter.v',
+
+    'flow_ctrl_rx.v',
+    'flow_ctrl_tx.v',
+
+
+    'simple_gemac_rx.v',
+    'simple_gemac_tx.v',
+
+    'simple_gemac_wb.v',
+    'simple_gemac.v',
+    'simple_gemac_wrapper.v',
+    'simple_gemac_wrapper_tb.v'
+    
+    ]
+
+files = ' '.join(filelist)
+
+os.system('iverilog -o simple_gemac ' + files)
+# to run the simulation ...
+#os.system('vvp simple_gemac')

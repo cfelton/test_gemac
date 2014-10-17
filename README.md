@@ -1,1 +1,1 @@
-  
+MyHDL GEMAC test environment

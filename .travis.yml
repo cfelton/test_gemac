@@ -11,6 +11,7 @@ before_install:
 install:
   - pwd
   - chmod +x ./scripts/ci/install_myhdl.sh
+  - ./scripts/ci/install_myhdl.sh
   - pip install git+https://github.com/cfelton/minnesota
   - pip install coverage
   - pip install coveralls

@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/cfelton/test_gemac.svg?branch=master)](https://travis-ci.org/cfelton/test_gemac)
+
 MyHDL GEMAC test environment
 ============================
 

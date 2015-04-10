@@ -18,7 +18,7 @@ install:
 # run the test, nosetests can be used
 script:
   - cd test
-  - python test_jpegenc.py
+  - python test_gemac.py
 
 notifications:
   email: false

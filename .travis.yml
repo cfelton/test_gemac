@@ -18,7 +18,7 @@ install:
 # run the test, nosetests can be used
 script:
   - cd test
-  - python test_gemac.py
+  - python test_simple_gemac.py
 
 notifications:
   email: false

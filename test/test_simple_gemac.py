@@ -10,11 +10,12 @@ from array import array
 
 from myhdl import *
 
+from mn.system import Global
 from mn.system import Wishbone
 
-from _sgem_prep_cosim import prep_cosim
-from _sgem_gmii import GMII
-from _sgem_stif import StreamIntf
+from support import prep_cosim
+from support import GMII
+from support import StreamIntf
 
 
 #=====================================================================
@@ -26,11 +27,12 @@ def test_simple_gemac(args):
     sys_clk = Signal(bool(0))
     clock = sys_clk
     reset = ResetSignal(0, active=1, async=True)
+    glbl = Global(clock, reset)
 
     # intefaces
     gmii = GMII()
     stif = StreamIntf(eth_clk=clk125, sys_clk=sys_clk)
-    wb = Wishbone(clock=sys_clk, reset=reset, dwidth=32, awidth=8, name='test')
+    wb = Wishbone(glbl, data_width=32, address_width=8, name='test')
 
     tbdut = prep_cosim(args, clk125, reset, gmii, sys_clk, stif, wb)
 
